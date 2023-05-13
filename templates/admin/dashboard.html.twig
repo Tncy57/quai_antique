@@ -1,0 +1,24 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block content_header_title %}
+    {{ page_title|default(_entity_config.name) }}
+{% endblock %}
+
+{% block content_header_actions %}
+    {% include '@EasyAdmin/default/includes/_global_actions.html.twig' %}
+{% endblock %}
+
+{% block page_content %}
+    <h1>{{ page_title|default(_entity_config.name) }}</h1>
+
+    <div class="content-dashboard">
+        {% for menuItem in menuItems %}
+            <div class="content-dashboard__item">
+                <a href="{{ menuItem.getUri }}" class="content-dashboard__link">
+                    <i class="{{ menuItem.getIcon }}"></i>
+                    {{ menuItem.getLabel }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

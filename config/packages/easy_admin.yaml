@@ -1,0 +1,14 @@
+easy_admin:
+  entities:
+    Dish:
+      class: App\Entity\Dish
+      list:
+        fields:
+          - id
+          - title
+          - price
+      form:
+        fields:
+          - title
+          - description
+          - price
