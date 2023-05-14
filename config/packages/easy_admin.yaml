@@ -1,14 +1,28 @@
 easy_admin:
   entities:
-    Dish:
-      class: App\Entity\Dish
-      list:
-        fields:
-          - id
-          - title
-          - price
+    - class: App\Entity\Photo
+      label: Photos
       form:
         fields:
-          - title
-          - description
-          - price
+          - 'title'
+          - 'imagePath'
+      list:
+        fields:
+          - 'title'
+          - 'imagePath'
+      actions:
+        - 'new'
+        - 'edit'
+        - 'delete'
+    - class: App\Entity\Dish
+      label: Dishes
+      list:
+        fields:
+          - 'id'
+          - 'title'
+          - 'price'
+      form:
+        fields:
+          - 'title'
+          - 'description'
+          - 'price'
