@@ -5,3 +5,7 @@
 #grant_admin:
 #    path: /admin/grant-admin/{id}
 #    controller: App\Controller\MakeAdminController::grantAdminRole
+
+dish_list:
+    path: /dishes
+    controller: App\Controller\DishController::index

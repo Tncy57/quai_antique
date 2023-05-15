@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Photo;
 use App\Entity\Dish;
+use App\Entity\Schedule;
 use Doctrine\Persistence\ManagerRegistry;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -26,12 +27,17 @@ class DashboardController extends AbstractDashboardController
         $menuItems = $this->configureMenuItems();
 
         $entityManager = $this->managerRegistry->getManager();
+
         $photoRepository = $entityManager->getRepository(Photo::class);
         $photos = $photoRepository->findAll();
+
+        $scheduleRepository = $entityManager->getRepository(Schedule::class);
+        $schedules = $scheduleRepository->findAll();
 
         return $this->render('admin/dashboard.html.twig', [
             'menuItems' => $menuItems,
             'photos' => $photos,
+            'schedules' => $schedules,
         ]); 
     }
 
@@ -47,6 +53,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Restaurant');
         yield MenuItem::linkToCrud('Dishes', 'fa fa-utensils', Dish::class);
         yield MenuItem::linkToCrud('Photos', 'fa fa-camera', Photo::class);
+        yield MenuItem::linkToCrud('Schedules', 'fa fa-calendar', Schedule::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

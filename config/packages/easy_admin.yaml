@@ -26,3 +26,23 @@ easy_admin:
           - 'title'
           - 'description'
           - 'price'
+    - class: App\Entity\Schedule
+      label: Schedules
+      list:
+        fields:
+          - 'day'
+          - 'lunchOpening'
+          - 'lunchClosing'
+          - 'dinnerOpening'
+          - 'dinnerClosing'
+      form:
+        fields:
+          - { property: 'day', type: 'text' }
+          - { property: 'lunchOpening', type: 'datetime' }
+          - { property: 'lunchClosing', type: 'datetime' }
+          - { property: 'dinnerOpening', type: 'datetime' }
+          - { property: 'dinnerClosing', type: 'datetime' }
+      actions:
+        - 'new'
+        - 'edit'
+        - 'delete'

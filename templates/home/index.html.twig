@@ -11,10 +11,23 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/alptu/OneDrive/Masaüstü/quai_antique/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/alptu/OneDrive/Masaüstü/quai_antique/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+    {% if photo %}
+            <h2>Featured Photo:</h2>
+            <div class="featured-photo">
+                <img src="{{ asset('uploads/photos/' ~ photo.imagePath) }}" 
+                     alt="{{ photo.title }}" 
+                     title="{{ photo.title }}" 
+                     style="max-width: 300px;">
+                <div class="photo-title">{{ photo.title }}</div>
+            </div>
+        {% else %}
+            <p>No photo found.</p>
+        {% endif %}
+
+      {% for schedule in schedules %}
+          <h2>{{ schedule.day }}</h2>
+          <p>{{ schedule.lunchOpening|date('H:i') }} - {{ schedule.lunchClosing|date('H:i') }}</p>
+          <p>{{ schedule.dinnerOpening|date('H:i') }} - {{ schedule.dinnerClosing|date('H:i') }}</p>
+      {% endfor %}
 </div>
 {% endblock %}
