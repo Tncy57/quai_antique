@@ -17,17 +17,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id;
 
+    #[ORM\Column(nullable: true)]
+    private ?string $firstname;
+
+    #[ORM\Column(nullable: true)]
+    private ?string $lastname;
+
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email;
-
-    #[ORM\Column]
-    private array $roles;
 
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
     private ?string $password;
+
+    #[ORM\Column]
+    private array $roles;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $numberOfGuests;
+
+    #[ORM\Column(nullable: true)]
+    private ?string $allergy;
 
     public function __construct()
     {
@@ -39,6 +51,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->id;
     }
 
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(?string $firstname): self
+    {
+        $this->firstname = $firstname;
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(?string $lastname): self
+    {
+        $this->lastname = $lastname;
+        return $this;
+    }
+    
     public function getEmail(): ?string
     {
         return $this->email;
@@ -47,7 +81,60 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setEmail(string $email): self
     {
         $this->email = $email;
+        return $this;
+    }
 
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+    
+    public function getNumberOfGuests(): ?int
+    {
+        return $this->numberOfGuests;
+    }
+
+    public function setNumberOfGuests(?int $numberOfGuests): self
+    {
+        $this->numberOfGuests = $numberOfGuests;
+        return $this;
+    }
+    
+    public function getAllergy(): ?string
+    {
+        return $this->allergy;
+    }
+
+    public function setAllergy(?string $allergy): self
+    {
+        $this->allergy = $allergy;
         return $this;
     }
 
@@ -68,41 +155,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return (string) $this->email;
     }
-
-    /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
-    {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
-    }
-
-    public function setRoles(array $roles): self
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    /**
-     * @see PasswordAuthenticatedUserInterface
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
+  
     /**
      * Returning a salt is only needed, if you are not using a modern
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
