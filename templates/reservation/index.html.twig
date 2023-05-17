@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation{% endblock %}
+
+{% block body %}
+    <h1>Réservez une table</h1>
+
+    {{ form_start(reservationForm) }}
+
+    {% if app.user %}
+        {{ form_row(reservationForm.firstname, {value: app.user.firstname}) }}
+        {{ form_row(reservationForm.lastname, {value: app.user.lastname}) }}
+        {{ form_row(reservationForm.email, {value: app.user.email}) }}
+        {{ form_row(reservationForm.numberOfGuests, {value: app.user.numberOfGuests}) }}
+        {{ form_row(reservationForm.allergy, {value: app.user.allergy}) }}
+        {{ form_row(reservationForm.date) }} 
+    {% else %}
+        {{ form_row(reservationForm.firstname) }}
+        {{ form_row(reservationForm.lastname) }}
+        {{ form_row(reservationForm.email) }}    
+        {{ form_row(reservationForm.date) }}        
+        {{ form_row(reservationForm.numberOfGuests) }}
+        {{ form_row(reservationForm.allergy) }}
+    {% endif %}
+
+    
+
+    <button type="submit" class="btn">Réserver</button>
+    {{ form_end(reservationForm) }}
+{% endblock %}

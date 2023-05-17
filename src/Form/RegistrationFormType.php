@@ -22,7 +22,9 @@ class RegistrationFormType extends AbstractType
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('email')
-            ->add('numberOfGuests', IntegerType::class)
+            ->add('numberOfGuests', IntegerType::class, [
+                'attr' => ['min' => 0],
+            ])
             ->add('allergy', TextType::class, [
                 'required' => false,
             ])
