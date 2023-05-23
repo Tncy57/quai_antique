@@ -2,7 +2,7 @@
 
 The restaurant Quai Antique is a web project which allows visitors and users book a table through the web-site.
 The visitors should provide all the necessary information while booking. The visitor can create an account 
-and log in. Logged-in user will only provide date and hour. The admin will have all access to modify the content of the website.
+and log in. Logged-in user will only provide date and hour. The admin will have all access to modify the contents of the website.
 
 ## Requirements
 -Symfony Lts
