@@ -7,9 +7,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 class ReservationFormType extends AbstractType
 {
@@ -26,9 +27,21 @@ class ReservationFormType extends AbstractType
             ])
             ->add('lastname')
             ->add('email')
-            ->add('date', DateTimeType::class)
+            ->add('date', DateType::class, [
+                'input' => 'datetime_immutable',
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr' => ['min' => date('Y-m-d')],
+            ])
+            ->add('hour', TimeType::class, [
+                'input' => 'datetime_immutable',
+                'widget' => 'choice',
+                'hours'   => [12, 13, 19, 20, 21],
+                'minutes' => [00, 15, 30, 45],
+                "required" => true,
+            ])
             ->add('numberOfGuests', IntegerType::class, [
-                'attr' => ['min' => 0],
+                'attr' => ['min' => 1],
             ])
             ->add('allergy')
         ;
@@ -38,6 +51,6 @@ class ReservationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Reservation::class,
-        ]);
+        ]);      
     }
 }

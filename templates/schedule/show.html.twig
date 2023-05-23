@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Schedule{% endblock %}
+{% block title %}Schedules{% endblock %}
 
 {% block body %}
-    <h1>Schedule</h1>
+    <h1>Schedules</h1>
 
     <table class="table">
         <tbody>
@@ -16,17 +16,21 @@
                 <td>{{ schedule.day }}</td>
             </tr>
             <tr>
-                <th>OpeningHour</th>
-                <td>{{ schedule.openingHour ? schedule.openingHour|date('H:i:s') : '' }}</td>
+                <th>Date</th>
+                <td>{{ schedule.date }}</td>
             </tr>
             <tr>
-                <th>ClosingHour</th>
-                <td>{{ schedule.closingHour ? schedule.closingHour|date('H:i:s') : '' }}</td>
+                <th>Opening</th>
+                <td>{{ schedule.opening ? schedule.opening|date('H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Closing</th>
+                <td>{{ schedule.closing ? schedule.closing|date('H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_schedule_index') }}">back to list</a>
+    <a href="{{ path('app_schedule_index') }}">back to the list</a>
 
     <a href="{{ path('app_schedule_edit', {'id': schedule.id}) }}">edit</a>
 

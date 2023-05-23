@@ -1,33 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Quai Antique{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% include 'partials/navbar.html.twig' %} 
 
     {% if photo %}
-            <h2>Featured Photo:</h2>
-            <div class="featured-photo">
+            <div class="container-fluid featured-photo">
                 <img src="{{ asset('uploads/photos/' ~ photo.imagePath) }}" 
+                     class="img-fluid"
                      alt="{{ photo.title }}" 
-                     title="{{ photo.title }}" 
-                     style="max-width: 300px;">
-                <div class="photo-title">{{ photo.title }}</div>
+                     title="{{ photo.title }}">
+                <div class="photo-title" style="display:none">{{ photo.title }}</div>
             </div>
         {% else %}
             <p>No photo found.</p>
         {% endif %}
 
+        <hr>
+
+    {% if menus %}
+            <div class="container-fluid d-flex flex-column align-items-center menu-container">
+                <h2>MENU DU MARCHE</h2>
+                {% for menu in menus %}
+                      <h5>{{ menu.title }}</h5>
+                      <p style="color: #B8B8B8; font-size: 14px">(Du lundi au samedi)</p>
+                      <p class="">{{ menu.description }} {{ menu.price }}</p>      
+                      <hr>         
+                {% endfor %}
+            </div>
+    {% endif %}
+    <hr>
+    
+    <div class="d-flex flex-column align-items-center justify-content-center text-center vh-100">
+      {% set currentDay = null %}
+      <h3 style="font-family: 'Pacifico', cursive; color: #8B0000;">Nos Horaires d'ouverture</h3>
       {% for schedule in schedules %}
-          <h2>{{ schedule.day }}</h2>
-          <p>{{ schedule.lunchOpening|date('H:i') }} - {{ schedule.lunchClosing|date('H:i') }}</p>
-          <p>{{ schedule.dinnerOpening|date('H:i') }} - {{ schedule.dinnerClosing|date('H:i') }}</p>
+            {% if currentDay != schedule.day %}
+              {% set currentDay = schedule.day %}
+              <h4>{{ currentDay }}</h4>
+            {% endif %}
+            <p class="schedule">
+              {{ schedule.lunchOpening|date('H:i') }} - {{ schedule.lunchClosing|date('H:i') }}
+              <br>
+              {{ schedule.dinnerOpening|date('H:i') }} - {{ schedule.dinnerClosing|date('H:i') }}
+            </p>
       {% endfor %}
-</div>
+    </div>
+
+  
+{% include 'partials/footer.html.twig' %} 
+
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 {% endblock %}

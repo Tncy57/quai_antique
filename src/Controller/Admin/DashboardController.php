@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Photo;
 use App\Entity\Dish;
 use App\Entity\Schedule;
+use App\Entity\Menu;
 use Doctrine\Persistence\ManagerRegistry;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -54,6 +55,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Dishes', 'fa fa-utensils', Dish::class);
         yield MenuItem::linkToCrud('Photos', 'fa fa-camera', Photo::class);
         yield MenuItem::linkToCrud('Schedules', 'fa fa-calendar', Schedule::class);
+        yield MenuItem::linkToCrud('Menu', 'fa fa-utensils', Menu::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

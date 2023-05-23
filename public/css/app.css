@@ -1,0 +1,73 @@
+/* Custom CSS for the menu */
+
+header {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+}
+
+.navbar {
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand {
+  font-family: 'Pacifico', cursive;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+  color: #555;
+  margin-left: 15px;
+}
+
+.nav-link:hover {
+  color: #333;
+}
+
+.logo {
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    color: #333;
+  }
+}
+
+/* Navbar End*/ 
+
+.featured-photo img {
+  width: 100%;
+  height: 600px;
+}
+
+.img-fluid {
+ height: auto;
+ width: 100%;
+ object-fit: cover;
+}
+
+.book {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+  background-color: #6ab346;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.book:hover {
+  color: white;
+  background-color: #508b33;
+  transition: 0.8s;
+}
+
+.schedule {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}

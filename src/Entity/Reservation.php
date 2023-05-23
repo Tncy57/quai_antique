@@ -23,8 +23,11 @@ class Reservation
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeInterface $date = null;
+
+    #[ORM\Column(type: Types::TIME_IMMUTABLE)]
+    private ?\DateTimeInterface $hour = null;
 
     #[ORM\Column]
     private ?int $numberOfGuests = null;
@@ -32,7 +35,7 @@ class Reservation
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $allergy = null;
 
-    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    #[ORM\ManyToOne(inversedBy: 'reservation')]
     #[ORM\JoinColumn(nullable: true)]
     private ?User $user;
 
@@ -49,7 +52,6 @@ class Reservation
     public function setFirstname(string $firstname): self
     {
         $this->firstname = $firstname;
-
         return $this;
     }
 
@@ -61,7 +63,6 @@ class Reservation
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
-
         return $this;
     }
 
@@ -73,7 +74,6 @@ class Reservation
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
         return $this;
     }
 
@@ -85,7 +85,17 @@ class Reservation
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+        return $this;
+    }
 
+    public function getHour(): ?\DateTimeInterface
+    {
+        return $this->hour;
+    }
+
+    public function setHour(\DateTimeInterface $hour): self
+    {
+        $this->hour = $hour;
         return $this;
     }
 
@@ -97,7 +107,6 @@ class Reservation
     public function setNumberOfGuests(int $numberOfGuests): self
     {
         $this->numberOfGuests = $numberOfGuests;
-
         return $this;
     }
 
@@ -109,7 +118,6 @@ class Reservation
     public function setAllergy(?string $allergy): self
     {
         $this->allergy = $allergy;
-
         return $this;
     }
 
@@ -121,7 +129,6 @@ class Reservation
     public function setUser(?User $user): self
     {
         $this->user = $user;
-
         return $this;
     }
 }

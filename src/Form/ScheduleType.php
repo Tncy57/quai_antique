@@ -3,36 +3,40 @@
 namespace App\Form;
 
 use App\Entity\Schedule;
-use DateTime;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 class ScheduleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('day')
-            ->add('lunchOpening', DateTime::class, [
-                'label' => 'Lunch Opening',
-                'input' => 'datetime',
+            ->add('day', TextType::class)
+            ->add('date', DateType::class, [
+                'input' => 'datetime_immutable',
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr' => ['min' => date('Y-m-d')],
+            ])
+            ->add('lunchOpening', TimeType::class, [
+                'input' => 'datetime_immutable',
                 'widget' => 'choice',
             ])
-            ->add('lunchClosing', DateTime::class, [
-                'label' => 'Lunch Closing',
-                'input' => 'datetime',
+            ->add('lunchClosing', TimeType::class, [
+                'input' => 'datetime_immutable',
                 'widget' => 'choice',
             ])
-            ->add('dinnerOpening', DateTime::class, [
-                'label' => 'Dinner Opening',
-                'input' => 'datetime',
-                'widget' => 'choice',
+            ->add('dinnerOpening', TimeType::class, [
+              'input' => 'datetime_immutable',
+              'widget' => 'choice',
             ])
-            ->add('dinnerClosing', DateTime::class, [
-                'label' => 'Dinner Closing',
-                'input' => 'datetime',
-                'widget' => 'choice',
+            ->add('dinnerClosing', TimeType::class, [
+              'input' => 'datetime_immutable',
+              'widget' => 'choice',
             ])
         ;
     }

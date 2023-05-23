@@ -1,19 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends 'home/index.html.twig' %}
 
-{% block title %}Hello DishController!{% endblock %}
+{% block title %}La carte{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>La carte du restaurant</h1>
-    {% for dish in dishes %}
-        <h3>{{ dish.title }}</h3>
-        <p>{{ dish.description|raw }}</p>
-        <p>Price: {{ dish.price }}</p>
-    {% endfor %}  
+{% include 'partials/navbar.html.twig' %} 
+
+  <div class="menu-wrapper">
+    <h1 class="menu-title">La carte du restaurant</h1>
+    <div class="menu-items">
+        {% for dish in dishes %}
+            <div class="menu-item">
+                <h3 class="dish-title">{{ dish.title }}</h3>
+                <p class="dish-description">{{ dish.description|raw }}</p>
+                <p class="dish-price">Price: {{ dish.price }}</p>
+            </div>
+        {% endfor %}  
+    </div>
 </div>
+
+{% include 'partials/footer.html.twig' %} 
+
+<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 {% endblock %}

@@ -3,9 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Schedule;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ScheduleCrudController extends AbstractCrudController
 {
@@ -17,13 +18,14 @@ class ScheduleCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('day');
-        yield DateTimeField::new('lunchOpening') 
-            ->setTimezone('Europe/Paris');
-        yield DateTimeField::new('lunchClosing')
-            ->setTimezone('Europe/Paris');
-        yield DateTimeField::new('dinnerOpening')
-            ->setTimezone('Europe/Paris');
-        yield DateTimeField::new('dinnerClosing')
-            ->setTimezone('Europe/Paris');
+        yield DateField::new('date');
+        yield TimeField::new('lunchOpening')
+              ->renderAsChoice();              
+        yield TimeField::new('lunchClosing')
+              ->renderAsChoice();
+        yield TimeField::new('dinnerOpening')
+              ->renderAsChoice();
+        yield TimeField::new('dinnerClosing')
+              ->renderAsChoice();
     }
 }

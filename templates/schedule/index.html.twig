@@ -9,9 +9,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Day</th>
-                <th>OpeningHour</th>
-                <th>ClosingHour</th>
+                <th>Date</th>
+                <th>Lunch Opening</th>
+                <th>Lunch Closing</th>
+                <th>Dinner Opening</th>
+                <th>Dinner Closing</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,8 +22,11 @@
             <tr>
                 <td>{{ schedule.id }}</td>
                 <td>{{ schedule.day }}</td>
-                <td>{{ schedule.openingHour ? schedule.openingHour|date('H:i:s') : '' }}</td>
-                <td>{{ schedule.closingHour ? schedule.closingHour|date('H:i:s') : '' }}</td>
+                <td>{{ schedule.date }}</td>
+                <td>{{ schedule.lunchOpening ? schedule.lunchOpening|date('H:i:s') : '' }}</td>
+                <td>{{ schedule.lunchClosing ? schedule.lunchClosing|date('H:i:s') : '' }}</td>
+                <td>{{ schedule.dinnerOpening ? schedule.dinnerOpening|date('H:i:s') : '' }}</td>
+                <td>{{ schedule.dinnerClosing ? schedule.dinnerClosing|date('H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_schedule_show', {'id': schedule.id}) }}">show</a>
                     <a href="{{ path('app_schedule_edit', {'id': schedule.id}) }}">edit</a>

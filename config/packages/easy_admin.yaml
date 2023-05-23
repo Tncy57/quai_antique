@@ -30,18 +30,17 @@ easy_admin:
       label: Schedules
       list:
         fields:
+          - id
           - 'day'
-          - 'lunchOpening'
-          - 'lunchClosing'
-          - 'dinnerOpening'
-          - 'dinnerClosing'
+          - 'date'
+          - 'opening'
+          - 'closing'
       form:
         fields:
           - { property: 'day', type: 'text' }
-          - { property: 'lunchOpening', type: 'datetime' }
-          - { property: 'lunchClosing', type: 'datetime' }
-          - { property: 'dinnerOpening', type: 'datetime' }
-          - { property: 'dinnerClosing', type: 'datetime' }
+          - { property: 'date', type : 'datetime' }
+          - { property: 'opening', type: 'datetime' }
+          - { property: 'closing', type: 'datetime' }
       actions:
         - 'new'
         - 'edit'

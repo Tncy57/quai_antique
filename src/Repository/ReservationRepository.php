@@ -21,6 +21,17 @@ class ReservationRepository extends ServiceEntityRepository
         parent::__construct($registry, Reservation::class);
     }
 
+    public function countReservationsByDateAndHours($selectedDate, $selectedHours)
+    {
+        $qb = $this->createQueryBuilder('r');
+        $qb->select('COUNT(r.id)');
+        $qb->andWhere('r.date = :date');
+        $qb->andWhere($qb->expr()->in('r.hour', $selectedHours));
+        $qb->setParameter('date', $selectedDate);
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
     public function save(Reservation $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
