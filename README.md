@@ -32,6 +32,6 @@ php bin/console doctrine:migrations:migrate
 ```bash
 symfony server:run
 ```
-To log in as admin:
+"" To log in as admin:
 Email: admin1@example.com   
 Password: 123456
