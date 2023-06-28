@@ -30,7 +30,7 @@ php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```
 ```bash
-symfony server:run
+symfony server:start
 ```
 ## To log in as admin:
 Email: admin1@example.com   
