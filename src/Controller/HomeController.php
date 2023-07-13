@@ -25,7 +25,6 @@ class HomeController extends AbstractController
         $menus = $menuRepository->findAll();
 
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
             'photo' => $photo,
             'schedules' => $schedules,
             'menus' => $menus,
