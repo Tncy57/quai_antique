@@ -4,12 +4,24 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dish.css') }}">
 {% endblock %}
 
 {% block body %}
 
 {% include 'partials/navbar.html.twig' %} 
+
+{% if photo %}
+            <div class="container-fluid featured-photo">
+                <img src="{{ asset('uploads/photos/' ~ photo.imagePath) }}" 
+                     class="img-fluid"
+                     alt="{{ photo.title }}" 
+                     title="{{ photo.title }}">
+                <div class="photo-title" style="display:none">{{ photo.title }}</div>
+            </div>
+        {% else %}
+            <p>No photo found.</p>
+        {% endif %}
 
   <div class="menu-wrapper">
     <h1 class="menu-title">La carte du restaurant</h1>

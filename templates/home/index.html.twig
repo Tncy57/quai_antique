@@ -28,26 +28,47 @@
 
         <hr>
 
+       <div class="container-fluid w-75">
+
+          <h2 class="about-title">Découvrez une expérience culinaire exceptionnelle chez Quai Antique</h2>
+
+          <p class="about">Quai Antique Restaurant, le choix parfait pour une expérience culinaire exceptionnelle. 
+            Notre restaurant vous propose une cuisine raffinée et créative, mettant en valeur les meilleurs 
+            ingrédients locaux et une attention particulière aux détails. Nous vous invitons à découvrir notre menu du 
+            marché, composé de plats savoureux préparés avec passion par notre talentueuse équipe de chefs. 
+            Que ce soit pour un dîner romantique, un repas en famille ou une occasion spéciale, nous nous efforçons de 
+            vous offrir un service chaleureux et une expérience gastronomique mémorable. Rejoignez-nous chez Quai Antique
+            Restaurant et laissez-nous vous faire vivre une expérience culinaire inoubliable.
+        </p>
+       </div>
+
+      <hr>
+
     {% if menus %}
             <div class="container-fluid d-flex flex-column align-items-center menu-container">
                 <h2>MENU DU MARCHE</h2>
                 {% for menu in menus %}
                       <h5>{{ menu.title }}</h5>
                       <p style="color: #B8B8B8; font-size: 14px">(Du lundi au samedi)</p>
-                      <p class="">{{ menu.description }} {{ menu.price }}</p>      
+                      <p class="menu-description">
+                          {{ menu.description }} - {{ menu.price }}
+                      </p>        
                       <hr>         
                 {% endfor %}
             </div>
     {% endif %}
     <hr>
-    
-    <div class="d-flex flex-column align-items-center justify-content-center text-center vh-100">
+
+    <div class="hours-container">
+        <div class="hours-bg"></div>
+        <div class="hours-content">
+            <div class="d-flex flex-column align-items-center justify-content-center text-center pt-5 py-5">
       {% set currentDay = null %}
-      <h3 style="font-family: 'Pacifico', cursive; color: #8B0000;">Nos Horaires d'ouverture</h3>
+      <h3 class="hours-title">Nos Horaires d'ouverture</h3>
       {% for schedule in schedules %}
             {% if currentDay != schedule.day %}
               {% set currentDay = schedule.day %}
-              <h4>{{ currentDay }}</h4>
+              <h4 class="dayOfWeek">{{ currentDay }}</h4>
             {% endif %}
             <p class="schedule">
               {{ schedule.lunchOpening|date('H:i') }} - {{ schedule.lunchClosing|date('H:i') }}
@@ -56,8 +77,9 @@
             </p>
       {% endfor %}
     </div>
-
-  
+        </div>
+    </div>
+    
 {% include 'partials/footer.html.twig' %} 
 
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>

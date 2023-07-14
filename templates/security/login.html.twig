@@ -19,7 +19,9 @@
                     </div>
                 {% endif %}
 
-                <h1 class="h3 mb-3 font-weight-normal text-center">Se connecter</h1>
+                <h1 class="h3 mb-3 font-weight-bold text-center" style="font-family: 'Montserrat', sans-serif;">
+                  Se connecter
+                </h1>
                 <div class="form-group">
                     <label for="inputEmail">Email</label>
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
@@ -42,7 +44,7 @@
                 #}
 
                 <button class="btn btn-primary btn-block mt-3" type="submit">
-                    Sign in
+                    Valider
                 </button>
             </form>
             <p class="pt-3"><a href="{{ path('app_forgot_password_request') }}">Vous avez oublié votre mot de passe?<a></p>

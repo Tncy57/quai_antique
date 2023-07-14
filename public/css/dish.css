@@ -3,8 +3,10 @@
 }
 
 .menu-title {
-  font-size: 30px;
-  margin-bottom: 30px;
+  font-size: 50px;
+  color: #8B0000;
+  margin-top: 50px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .menu-items {
@@ -23,16 +25,21 @@
 }
 
 .dish-title {
+  color: #8B0000;
   font-size: 24px;
   margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.dish-description {
+/*.dish-description {
+  color: blue;
   font-size: 16px;
   margin-bottom: 10px;
-}
+  font-family: 'Pacifico', cursive;
+}*/
 
 .dish-price {
   font-size: 18px;
   font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
 }

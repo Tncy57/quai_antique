@@ -34,6 +34,7 @@ class ReservationFormType extends AbstractType
                 'attr' => ['min' => date('Y-m-d')],
             ])
             ->add('hour', TimeType::class, [
+                'label' => 'Heure',
                 'input' => 'datetime_immutable',
                 'widget' => 'choice',
                 'hours'   => [12, 13, 19, 20, 21],
@@ -43,7 +44,9 @@ class ReservationFormType extends AbstractType
             ->add('numberOfGuests', IntegerType::class, [
                 'attr' => ['min' => 1],
             ])
-            ->add('allergy')
+            ->add('allergy', TextType::class, [
+                'label' => 'Allergie',
+            ])
         ;
     }
 

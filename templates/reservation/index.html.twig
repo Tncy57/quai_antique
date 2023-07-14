@@ -14,10 +14,10 @@
       
     <div class="form-group mt-5">
          
-          <div class="mt-3 d-flex justify-content-center">
+          <div class="mt-3 d-flex justify-content-center pt-5 py-5">
 
               {{ form_start(reservationForm) }}
-                  <h1>Réservez une table</h1>
+                  <h1 style="font-family: 'Montserrat', sans-serif;">Réservez une table</h1>
                   {% if app.user %}
                           {{ form_row(reservationForm.firstname, {value: app.user.firstname}) }}
                           {{ form_row(reservationForm.lastname, {value: app.user.lastname}) }}
@@ -45,5 +45,8 @@
               {{ form_end(reservationForm) }}
           </div>
     </div> 
+
+    {% include 'partials/footer.html.twig' %} 
+
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>    
 {% endblock %}

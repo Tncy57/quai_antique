@@ -36,6 +36,29 @@ header {
   }
 }
 
+/* About */
+.about-title {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  color: #8B0000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.about {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /*padding-left: 50px;
+  padding-right: 50px;*/
+  line-height: 1.5;
+}
+
 /* Navbar End*/ 
 
 .featured-photo img {
@@ -65,9 +88,125 @@ header {
   transition: 0.8s;
 }
 
+/* Menu du Marche */
+.menu-container {
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menu-container h2 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #8B0000;
+  margin-bottom: 20px;
+}
+
+.menu-container h5 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.menu-container p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.menu-container .menu-description {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.menu-container .menu-description {
+  font-weight: bold;
+  color: #8B0000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.menu-container hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+/* Nos Horaires d'ouverture */
+
+.hours-title {
+  font-size: 50px;
+  color: #8B0000;
+  margin-bottom: 35px;
+  font-family: 'Pacifico', cursive;
+}
+
+.dayOfWeek {
+  margin-bottom: 0;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .schedule {
   display: inline-block;
   margin-left: 20px;
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .hours-title {
+    font-size: 32px;
+  }
+  
+  .dayOfWeek {
+    font-size: 24px;
+  }
+  
+  .schedule {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+}
+
+/* Background Image - Nos Horaires d'ouverture */
+
+.hours-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hours-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../image/restaurant-image.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+}
+
+.hours-content {
+  z-index: 1;
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .hours-content {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
