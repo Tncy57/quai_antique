@@ -54,8 +54,6 @@ header {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
-  /*padding-left: 50px;
-  padding-right: 50px;*/
   line-height: 1.5;
 }
 
@@ -80,6 +78,7 @@ header {
   background-color: #6ab346;
   font-size: 1.2rem;
   text-transform: uppercase;
+  padding: 4px 12px 4px 12px;
 }
 
 .book:hover {
@@ -155,8 +154,9 @@ header {
 
 .schedule {
   display: inline-block;
+  font-weight: bold;
   margin-left: 20px;
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 25px;
   font-family: 'Montserrat', sans-serif;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -194,7 +194,7 @@ header {
   background-image: url('../image/restaurant-image.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .hours-content {

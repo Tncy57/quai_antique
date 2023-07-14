@@ -51,7 +51,7 @@
                       <h5>{{ menu.title }}</h5>
                       <p style="color: #B8B8B8; font-size: 14px">(Du lundi au samedi)</p>
                       <p class="menu-description">
-                          {{ menu.description }} - {{ menu.price }}
+                          {{ menu.description }} - {{ menu.price }}€
                       </p>        
                       <hr>         
                 {% endfor %}
@@ -76,6 +76,7 @@
               {{ schedule.dinnerOpening|date('H:i') }} - {{ schedule.dinnerClosing|date('H:i') }}
             </p>
       {% endfor %}
+      <a class="book mt-5" href="{{ path('app_reservation') }}">Réserver</a>
     </div>
         </div>
     </div>
