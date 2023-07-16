@@ -14,7 +14,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
     name: 'app:user:grant-admin-role',
-    description: 'Add a short description for your command',
+    description: 'This command changes the role of the user',
 )]
 class GrantAdminRoleCommand extends Command
 {
@@ -59,3 +59,4 @@ class GrantAdminRoleCommand extends Command
       }
     }
 }
+

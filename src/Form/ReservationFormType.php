@@ -31,21 +31,26 @@ class ReservationFormType extends AbstractType
                 'input' => 'datetime_immutable',
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
-                'attr' => ['min' => date('Y-m-d')],
+                'attr' => [
+                  'id' => 'date',
+                  'min' => date('Y-m-d')
+                ],
             ])
             ->add('hour', TimeType::class, [
                 'label' => 'Heure',
+                'label_attr' => ['id' => 'my-label-id'],
                 'input' => 'datetime_immutable',
                 'widget' => 'choice',
                 'hours'   => [12, 13, 19, 20, 21],
                 'minutes' => [00, 15, 30, 45],
-                "required" => true,
+                'required' => true,
             ])
             ->add('numberOfGuests', IntegerType::class, [
                 'attr' => ['min' => 1],
             ])
             ->add('allergy', TextType::class, [
                 'label' => 'Allergie',
+                'required' => false,
             ])
         ;
     }

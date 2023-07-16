@@ -19,13 +19,13 @@
               {{ form_start(reservationForm) }}
                   <h1 style="font-family: 'Montserrat', sans-serif;">Réservez une table</h1>
                   {% if app.user %}
-                          {{ form_row(reservationForm.firstname, {value: app.user.firstname}) }}
-                          {{ form_row(reservationForm.lastname, {value: app.user.lastname}) }}
-                          {{ form_row(reservationForm.email, {value: app.user.email}) }}
+                          {{ form_row(reservationForm.firstname, {value: app.user.firstname, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
+                          {{ form_row(reservationForm.lastname, {value: app.user.lastname, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
+                          {{ form_row(reservationForm.email, {value: app.user.email, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
                           {{ form_row(reservationForm.date) }}
                           {{ form_row(reservationForm.hour) }}      
-                          {{ form_row(reservationForm.numberOfGuests, {value: app.user.numberOfGuests}) }}
-                          {{ form_row(reservationForm.allergy, {value: app.user.allergy}) }}
+                          {{ form_row(reservationForm.numberOfGuests, {value: app.user.numberOfGuests, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
+                          {{ form_row(reservationForm.allergy, {value: app.user.allergy, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
                   {% else %}
                           {{ form_row(reservationForm.firstname) }}
                           {{ form_row(reservationForm.lastname) }}
@@ -48,5 +48,7 @@
 
     {% include 'partials/footer.html.twig' %} 
 
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>    
+    <script src="{{ asset('js/displayHour.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+  
 {% endblock %}
