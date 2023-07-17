@@ -13,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Range;
 
 class RegistrationFormType extends AbstractType
 {
@@ -23,9 +24,10 @@ class RegistrationFormType extends AbstractType
             ->add('lastname', TextType::class)
             ->add('email')
             ->add('numberOfGuests', IntegerType::class, [
-                'attr' => ['min' => 0],
+              'attr' => ['min' => 2, 'max' => 6],
             ])
             ->add('allergy', TextType::class, [
+                'label' => 'Allergie',
                 'required' => false,
             ])
             ->add('plainPassword', PasswordType::class, [
@@ -35,7 +37,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrer un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,

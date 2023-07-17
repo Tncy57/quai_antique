@@ -14,9 +14,6 @@ class PhotoCrudController extends AbstractCrudController
         return Photo::class;
     }
 
-    // Optional: Customize the CRUD configuration if needed
-    // ...
-
     public function configureFields(string $pageName): iterable
     {
         return [

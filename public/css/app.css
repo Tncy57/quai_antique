@@ -36,6 +36,10 @@ header {
   }
 }
 
+hr {
+  color: #8B0000;
+}
+
 /* About */
 .about-title {
   font-size: 24px;

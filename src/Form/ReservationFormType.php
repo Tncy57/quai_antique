@@ -41,12 +41,12 @@ class ReservationFormType extends AbstractType
                 'label_attr' => ['id' => 'my-label-id'],
                 'input' => 'datetime_immutable',
                 'widget' => 'choice',
-                'hours'   => [12, 13, 19, 20, 21],
+                'hours'   => [12, 13, 19, 20],
                 'minutes' => [00, 15, 30, 45],
                 'required' => true,
             ])
             ->add('numberOfGuests', IntegerType::class, [
-                'attr' => ['min' => 1],
+                'attr' => ['min' => 2, 'max' => 6],
             ])
             ->add('allergy', TextType::class, [
                 'label' => 'Allergie',
