@@ -25,11 +25,16 @@
                       {{ form_row(registrationForm.lastname) }}
                       {{ form_row(registrationForm.numberOfGuests) }}
                       {{ form_row(registrationForm.allergy) }}
-                      {{ form_row(registrationForm.plainPassword, {
-                          label: 'Password'
-                      }) }}
+                      {{ form_row(registrationForm.plainPassword, { label: 'Password' }) }}
+                      <div class="custom-checkbox">
+                          {{ form_widget(registrationForm.agreeTerms, { 'attr': {'class': 'custom-checkbox-input'} }) }}
+                          {{ form_label(registrationForm.agreeTerms, null, { 'label_attr': {'class': 'custom-checkbox-label'} }) }}
+                      </div>
 
-                      <button type="submit" class="btn btn-outline-primary">S'inscrire</button>
+
+                      <div class="text-center mt-3">
+                          <button type="submit" class="btn btn-outline-primary btn-lg px-5">S'inscrire</button>
+                      </div>
                       
               {{ form_end(registrationForm) }}
       </div>

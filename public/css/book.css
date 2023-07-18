@@ -66,3 +66,18 @@ select:focus {
   transition: 0.8s;
 }
 
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.custom-checkbox-input {
+  width: 16px;
+  height: 16px;
+}
+
+.custom-checkbox-label {
+  font-size: 15px;
+  opacity: 0.8;
+  margin-left: 5px;
+}
