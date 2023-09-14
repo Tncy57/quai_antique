@@ -26,6 +26,7 @@
                       {{ form_row(registrationForm.numberOfGuests) }}
                       {{ form_row(registrationForm.allergy) }}
                       {{ form_row(registrationForm.plainPassword, { label: 'Password' }) }}
+                      <p id="password-message"></p>
                       <div class="custom-checkbox">
                           {{ form_widget(registrationForm.agreeTerms, { 'attr': {'class': 'custom-checkbox-input'} }) }}
                           {{ form_label(registrationForm.agreeTerms, null, { 'label_attr': {'class': 'custom-checkbox-label'} }) }}
@@ -42,6 +43,7 @@
 
     {% include 'partials/footer.html.twig' %} 
 
+    <script src="{{ asset('js/regex.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 {% endblock %}
 
