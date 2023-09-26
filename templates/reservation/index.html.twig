@@ -17,8 +17,10 @@
           <div class="mt-3 d-flex justify-content-center pt-5 py-5">
 
               {{ form_start(reservationForm) }}
-                  <h1 style="font-family: 'Montserrat', sans-serif;">Réservez une table</h1>
+                  
                   {% if app.user %}
+                  <h1 style="font-family: 'Montserrat', sans-serif;">Bienvenue {{ app.user.firstname }},</h1>
+                  <h2 style="font-family: 'Montserrat', sans-serif;" class="text-center mt-5">Vous voulez réserver tout de suite?</h2>
                           {{ form_row(reservationForm.firstname, {value: app.user.firstname, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
                           {{ form_row(reservationForm.lastname, {value: app.user.lastname, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
                           {{ form_row(reservationForm.email, {value: app.user.email, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
@@ -27,6 +29,7 @@
                           {{ form_row(reservationForm.numberOfGuests, {value: app.user.numberOfGuests, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
                           {{ form_row(reservationForm.allergy, {value: app.user.allergy, attr: {'style': 'display: none;'}, label_attr: {'style': 'display: none;'}}) }}
                   {% else %}
+                  <h1 style="font-family: 'Montserrat', sans-serif;">Réservez une table</h1>
                           {{ form_row(reservationForm.firstname) }}
                           {{ form_row(reservationForm.lastname) }}
                           {{ form_row(reservationForm.email) }}

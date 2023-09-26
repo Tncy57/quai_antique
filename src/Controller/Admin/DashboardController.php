@@ -64,3 +64,4 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Reservations', 'fas fa-list', Reservation::class);
     }
 }
+
