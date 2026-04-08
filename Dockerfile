@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Sistem bağımlılıkları
 RUN apt-get update && apt-get install -y \
-    git unzip libicu-dev zlib1g-dev libzip-dev libonig-dev \
+    git unzip libicu-dev zlib1g-dev libzip-dev libonig-dev sqlite3 libsqlite3-dev \
     && docker-php-ext-install intl pdo pdo_sqlite zip
 
 # Composer (PHP bağımlılıkları için)
