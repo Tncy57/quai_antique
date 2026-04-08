@@ -46,6 +46,15 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
+
+        // Kullanıcı rollerine bak
+        $roles = $token->getRoleNames();
+
+        // Admin ise EasyAdmin paneline yönlendir
+        if (in_array('ROLE_ADMIN', $roles, true)) {
+            return new RedirectResponse($this->urlGenerator->generate('admin')); // EasyAdmin dashboard route ismi
+        }
+
         return new RedirectResponse($this->urlGenerator->generate('app_reservation'));
         // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }

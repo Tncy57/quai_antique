@@ -69,6 +69,7 @@ class ReservationController extends AbstractController
             // Persist the entity
             $entityManager->persist($reservation);
             $entityManager->flush();
+            $this->addFlash('success', 'Votre réservation a été enregistrée avec succès !');
     
             return $this->redirectToRoute('app_home');
         }
@@ -78,3 +79,4 @@ class ReservationController extends AbstractController
         ]);
     }
 }
+
